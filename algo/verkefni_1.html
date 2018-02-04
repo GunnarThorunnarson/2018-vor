@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="verkefni.css">
+  </head>
+  <body>
+    <div class="wrap">
+    <h1>FORR3RR05DU — Verkefni 1</h1>
+    <p>Neptúnus Egilsson<br>
+    Vor 2018</p>
+    <ul style="list-style: lower-roman">
+      <li ><a href="#1.1">pseudocode</a> </li>
+      <li ><a href="#1.2">shortest path</a> </li>
+      <li ><a href="#1.3">cellular automata</a> </li>
+      <li ><a href="#1.4">decision tree</a> </li>
+      <li ><a href="#1.5">data compression</a> </li>
+      <li ><a href="#1.6">decomposition</a> </li>
+      <li ><a href="#1.7">Turing, vélrænt nám, hermun</a> </li>
+      <li ><a href="#1.8">endurkvæmni: calculator</a> </li>
+      <li ><a href="#1.9">endurkvæmni: Tower of Hanoi</a> </li>
+      <li ><a href="#1.10">endurkvæmni: Project Euler</a> </li>
+    </ul>
+    <hr>
+    <section id="1.1">
+      <h2>1.1 — pseudocode</h2>
+      <ol>
+        <li>
+          <h3>fibonacci</h3>
+          <p class="pre">Create an empty list.
+If the input is 1 :
+	Append 1 to the list.
+If the input is greater than 1 :
+	Append 1 to the list.
+If the input is greater than 2 :
+	For every number in the range of 3 to the input number :
+		Append the sum of the last two numbers in the list to the list.
+Return the list.
+</p>
+        </li>
+        <li>
+          <h3>supermarket traversal</h3>
+          <p class="pre">for every aisle in the store:
+	if items are left on the shopping list:
+		filter shopping list for items that match aisle
+		move through aisle, collecting all filtered items, striking them off the list
+	else break</p>
+        </li>
+      </ol>
+    </section>
+    <section id="1.2">
+      <h2>1.2 — shortest path</h2>
+      <ul style="list-style: lower-alpha;">
+        <li>
+          <p>Við Bjarki fórum að eltast við hugmyndir um að hópa punktum á kortinu í þríhyrninga. Hver þríhyrningur hefði upphafspunkt og endapunkt og það væru þeir punktar sem tengdu svo alla leiðina saman. Það virtist vera algengur möguleiki að stysta leiðin í gegnum hvern þríhyrning væri á heildina litið ekki stysta leiðin. Á endanum birtist hugmynd um að það væri hægt að þróa leið gegnum hnitin með eftirfarandi aðferð:</br>
+          Fyrst er punktur valinn. Við fundum enga beina lausn á því hver byrjunarpunktur væri, en mögulega væri hægt að skoða dreifingu hnita og athuga með fjarlægð frá staðalfráviki—okkur skortir almennilega þekkingu á því sviði.</br>
+          Næst er sá punktur valinn sem er styst frá okkar punkti. Þetta er gert með því að skoða öll önnur hnit á kortinu. Þetta er endurtekið fyrir næsta punkt, og einu sinni enn.</br>
+          Núna eru fjórir punktar valdir, A B C & D. Við berum saman tvær leiðir: ABCD og ACBD. Styttri leiðin er valin og nýr punktur er fundinn út frá fjarlægð frá B. Nú eru punktar A B C D & E til, og við færum index niður um 1. Þá verða B C D & E að A B C & D, og leikurinn er endurtekinn þangað til að leið gegnum allt kortið er fundin.</p>
+          <p>Verkefnin á blöðunum voru unnin með því markmiði að fá hugmyndir að almennri aðferðarfræði. Á síðasta blaðinu kom í ljós að hringleið virðist henta oft vel.</p>
+        </li>
+        <li>
+          <ol>
+            <li>
+              <p>Some starting locations may be sub-optimal. For example, starting in the center of a "bottleneck" may result in a longer path when crossing over to the other side.</p>
+            </li>
+            <li>
+              <p>Some stats:<br>
+              SA long:	4.940.976 meters<br>
+              SA lat:	4.004.540 meters<br><br>
+              US long:	28.557.554meters<br>
+          		US lat:	73.359.819meters</p>
+              <p>It's plain to see that simple strategies like these can vary greatly in effectiveness.<p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>Traveling Salesman Problem (TSP) er viðamikið vandamál sem hefur reynst sérlega fjölnýtt. Leitin að stystu leið á milli einhvers fjölda borga (punkta) undir ýmsum skilyrðum á við fjölmörg svið: framleiðsla á prentplötum (PCB) og örflögum, raðgreining erfðaefnis, borgarskipulag og stjörnuskoðun geta öll nýtt TSP. Hæfileikar mannfólks til að komast fljótt að bestu eða nær-bestu leið sjónrænt hafa boðið rannsóknarfólki upp á tækifæri til að rýna betur í það hvernig mannheilinn virkar.</p>
+          <p>Ekki er sjálfgefið að leiðir milli punkta séu samhverfar, þ.e.a.s. að fyrir leið A -> B sé til leið B -> A – eða þá að þær leiðir séu jafn langar. Einstefnugötur í borgum og mis-dýrar flugleiðir eru dæmi um slíka ósamhverfu.</p>
+          <p>Greinilega er vandinn stór. Það er staðreynd að besta lausn fæst almennt ekki með því að velja tengingar milli punkta út frá stystu leið hverju sinni. Þegar punktarnir eru taldir í milljónum geta útreikningar því tekið langan tíma. TSP er svokallað NP-hard vandamál.</p>
+        </li>
+      </ul>
+    </section>
+    <section id="1.3">
+      <h2>1.3 – cellular automata</h2>
+      <a href="static/conway_1.jpg"><img src="static/conway_1.jpg"></img></a>
+      <a href="static/conway_2.jpg"><img src="static/conway_2.jpg"></img></a>
+    </section>
+    <section id="1.4">
+      <h2>1.4 – decision tree</h2>
+      <ul style="list-style: lower-alpha">
+        <li>
+          <p>log2 finnur hvaða veldi af 2 þarf til að ná upp í einhverja tölu. Decision tree (ákvarðanatré?) helmingar mengi svara með hverju skrefi, og þannig þarf log2(möguleikar) ákvarðana til að komast að einni niðurstöðu.</p>
+        </li>
+        <li>
+          <p>Morse kóði var fundinn upp til þess að hægt væri að senda fleiri stafi á mínútu heldur en hægri-vinstri nálakerfið sem var í notkun á þeim tíma bauð upp á. Það virkar út frá þeirri hugmynd að off-signal er hægt að nota sem signal á sama hátt og on-signal. Með ákveðnum tímasetningum og takti má troða fleiri upplýsingum í straum rafboða. Þá með einum hnappi má fá ferns-konar skilaboð: Langur púls (dash), stuttur púls (dot), löng pása og stutt pása.</p>
+          <p>Til þess að ákveða hvaða gögn skyldu vera notuð fyrir hvaða stafi voru bækur greindar til að tíðni stafa kæmi í ljós. Þá var farið í gegnum ákvarðanatré sem skiptist í greinarnar dot/dash: E og T fengu efstu sæti í trénu (dot, dash), svo I, A, N og M (dot dot, dot dash, dash dot, dash dash) og þannig fram eftir götunum.</p>
+        </li>
+      </ul>
+    </section>
+    <section id="1.5">
+      <h2>1.5 – data compression</h2>
+      <p>TODO</p>
+    </section>
+    <section id="1.6">
+      <h2>1.6 – decomposition</h2>
+      <p class="pre">Pseudocode:
+
+  For every side of the polygon :
+  Turn by 360° divided by the total number of sides
+  Move forward</p>
+  <p>Turtle:</p>
+  <pre class="code">
+sides = 4
+  for [1..sides]
+    rt 360/sides
+    fd 100</pre>
+    </section>
+    <section id="1.7">
+      <h2>1.7 – turing, vélrænt nám, hermun</h2>
+      <ol style="list-style: lower-alpha">
+        <li>
+          <p>Alan Turing var enskur tölvunarfræðingur, stærðfræðingur og dulmálsfræðingur ( meðal annars ) sem er álitinn faðir tölvunarfræði og gervigreindar. Turing-vélin er stærðfræðilíkan sem sannar ákveðna eiginleika tölvunarfræði. Forritunarmál sem uppfyllir skilyrði Turing-véla kallast "Turing complete" og getur fræðilega tjáð allt sem tölva getur framkvæmt.</p>
+        </li>
+        <li>
+          <p>Machine learning er svið tölvunarfræði sem gengur út á það að gefa tölvum getu til að læra án þess að vera sérstaklega forritaðar til þess. Lýsingin er frekar opin og þess vegna kemur ekki á óvart að aðferðarfræði og notkunarmöguleikar eru af ýmsu tagi.</p>
+        </li>
+        <li>
+          <p>Hermun gengur út á það að endurskapa eitthvað úr raunveruleikanum í sýndarveruleika. Í tölvunarfræði er, til dæmis, hægt að notast við tölvuhermi til þess að prufa og þróa hugbúnað fyrir alls konar vélbúnað, jafnvel kerfi sem hafa ekki enn verið útfærð í raunveruleikanum.</p>
+          <p>Með hermun er hægt að prófa kerfi með heilum settum af parametrum án þess að þurfa handvirkt að setja þau skilyrði upp fyrir hvert sett.</p>
+          <p>Til dæmis er mögulegt með hermun að þróa vefi fyrir vafra sem eru ekki til á tölvu vefhönnuðarins, eins og Internet Explorer 6 á nútíma macOS vél.</p>
+        </li>
+      </ol>
+    </section>
+    <section id="1.8">
+      <h2>1.8 – endurkvæmni: calculator</h2>
+      <p class="pre">Byrjum á að skoða samband milli fyrstu ferninganna:<br>
+        0 → 0
+        1 → 1
+        2 → 4
+        3 → 9
+        4 → 16
+        5 → 25
+        6 → 36
+        7 → 49</p>
+      <p>Við getum séð að með hverju skrefinu hækkar gildið um 1, 3, 5, 7, 9, 11, 13 og þar fram eftir götunum. Svo að t.d. 4 er 7 + 5 + 3 + 1. 7 er 2*4-1. Þetta á líka við um 2*7-1 = 13 o.s.frv. square(x)+2*x-1 ætti að ganga. 1 er bara 1 svo það er base case.</p>
+      <p>pseudocode:</p>
+      <ol>
+        <li>ef inntakið er 1: skilum 1</li>
+        <li>annars skilum við f(x-1) + 2*x -1</li>
+      </ol>
+      <p>Python</p>
+      <pre class="code">def sq(x):
+	if (x==1):
+		return 1
+	return sq(x-1) + 2*x - 1</pre>
+    </section>
+    <section id="1.9">
+      <h2>1.9 – endurkvæmni: tower of hanoi</h2>
+      <p>Til þess að leysa þetta vandamál á endurkvæman hátt þarf að hugsa um grunnskilyrðið, sem er að færa einn disk í einu. <br>
+      Til þess að fá að flytja neðsta diskinn í staflanum er nauðsynlegt að færa (stafli-1) af diskum yfir á millibils-stöng — þá má færa neðsta diskinn án vandræða. Til þess að fá að færa (stafli-1) þurfum við að endurtaka þessa hugmynd þangað til að (stafli-1) verður 1.<br>
+      Allir aðrir diskar mega fara ofan á stærsta diskinn svo þegar hann er kominn á endastöng má hunsa hann, og þannig koll af kolli.</p>
+      <p>Python kóði og enskur sauðakóði fenginn frá [interactivepython.org](https://interactivepython.org/runestone/static/pythonds/Recursion/TowerofHanoi.html)</p>
+      <p>Í sauðakóða má skrifa þetta upp svona:</p>
+      <ol>
+        <li>Færum turn sem er á við hæð-1 yfir á millibilsstöng með hjálp lokastangarinnar.</li>
+        <li>Færum síðasta diskinn yfir á lokastöng.</li>
+        <li>Færum turn sem er á við hæð-1 yfir á lokastöng með hjálp upprunalegu stangarinnar.</li>
+      </ol>
+      <p>Python:</p>
+      <pre class="code">def moveTower(height,fromPole, toPole, withPole):
+    // return-um alltaf þegar hæðin er 0, því þá er ekkert að gera
+    // ef hæðin er 1 þá færum við bara disk og ekkert annað gerist
+    if height >= 1:
+	      // færum einum smærri turn yfir á millibilsstöngina
+        // (toPole er það sem upprunalega er withPole og öfugt)
+        moveTower(height-1,fromPole,withPole,toPole)
+        moveDisk(fromPole,toPole)
+	      // færum restina af turninum yfir á lokastöngina (toPole)
+        // frá millibilsstönginni
+        moveTower(height-1,withPole,toPole,fromPole)
+
+def moveDisk(fp,tp):
+    print("moving disk from ",fp," to ",tp)
+
+moveTower(5,"A","B","C")
+</code></pre>
+    </section>
+    <section id="1.10">
+      <h2>1.10 – endurkvæmni: Project Euler</h2>
+      <h3>a) Problem 14: Longest Collatz sequence</h3>
+        <p>Svarið er 837799 sem er 525 á lengdina.<br>
+        c++ kóði: </p>
+        <pre class="code">#include &lt;iostream&gt;
+
+using namespace std;
+
+// recursive collatz function
+// we are interested in finding the longest chain, so we'll
+// want the function to return the number of terms required to
+// reach 1.
+int c(long n) {
+  if (n==1) return 1;
+  if (n%2) return 1 + c(3*n+1);
+  return 1 + c(n/2);
+}
+
+struct COLLATZ {
+  int num;
+  int count;
+};
+
+int main() {
+  COLLATZ longest;
+  longest.count = 0;
+  longest.num = 0;
+  for ( int i = 1; i <= 1000000; i++) {
+    int count = c(i);
+    if (count > longest.count) {
+        longest.count = count;
+        longest.num = i;
+    }
+  }
+  cout << "The longest sequence is generated by the number " << longest.num
+  << " with " << longest.count << " terms!" << endl;
+  return 0;
+}
+      </pre>
+      <h3>b) Problem 15: Lattice paths</h3>
+      <p>Ég lenti í dálitlum vandræðum með þetta verkefni: Með 20x20 grid virðist forritið mitt ekki ná að klára vinnslu. Ég fæ ekki stack overflow error, en forritið stoppar eftir nokkurn tíma og virðist ekki vilja halda áfram. Með smærri input þá fæ ég þó rétt svör, svo ég geri ráð fyrir því að reikniritið virki rétt.</p>
+      <pre class="code">#include &lt;iostream&gt;
+using namespace std;
+
+// Because we cannot go left or up, we can think about the grid shrinking when
+// we make any move. Go right and the width of the remaining grid is reduced
+// by 1, and thus for down and the height. The base case is either the height
+// or the width reaching 0, because at that point there are no more choices
+// to be made and the remaining path is known.
+long lattice(int w, int h){
+  if (w == 0 || h == 0) return 1;
+  int count = 0;
+  count += lattice(w-1, h);
+  count += lattice(w, h-1);
+  return count;
+}
+
+int main() {
+  cout << lattice(20, 20) << endl;
+  return 0;
+}
+</pre>
+      <h3>c) Problem 31: Coin sums</h3>
+      <p>TODO</p>
+    </section>
+    <hr>
+    <footer><p>♆</p></footer>
+  </div>
+  </body>
+</html>
