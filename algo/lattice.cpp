@@ -6,7 +6,6 @@ using namespace std;
 // by 1, and thus for down and the height. The base case is either the height
 // or the width reaching 0, because at that point there are no more choices
 // to be made and the remaining path is known.
-//
 long lattice(int w, int h){
   if (w == 0 || h == 0) return 1;
   int count = 0;
@@ -16,7 +15,6 @@ long lattice(int w, int h){
 }
 
 int main() {
-  // should return 2
   cout << lattice(20, 20) << endl;
   return 0;
 }
