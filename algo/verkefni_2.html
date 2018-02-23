@@ -13,9 +13,12 @@
     <ul>
       <li ><a href="#2.1">russian vs naive algorithm</a> </li>
       <li ><a href="#2.2">quickfind</a> </li>
-      <ul style="list-style: lower-roman">
-        <li ><a href="#2.2e">hvað er að kóðanum?</a> </li>
-      </ul>
+      <ol style="list-style: lower-alpha" start="3">
+        <li ><a href="#2.2c">trén teiknuð</a> </li>
+        <li value="5"><a href="#2.2e">hvað er að kóðanum?</a> </li>
+        <li ><a href="#2.2f">víxlun á root(p) og root(q)</a> </li>
+        <li ><a href="#2.2g">samanburður aðferða</a> </li>
+      </ol>
     </ul>
     <hr>
     <section id="2.1">
@@ -30,8 +33,31 @@
       <p></p>
     </section>
     <section id="2.2">
-      <h2>1.2 — shortest path</h2>
+      <h2>1.2 — Shortest path</h2>
       <p><a href="https://github.com/neptunus/unionfind">Kóði fyrir þetta verkefni</a> var unninn í C#</p>
+    </section>
+    <section id="2.2c">
+      <h3>c. trén teiknuð</h3>
+      <p>Quickfind má tákna svona : <code>{0} {1,2} {3,4,8,9} {5,6} {7}</code>.</p>
+      <div class="images">
+        <a href="static/unionfind.png"><img class="single" src="static/unionfind.png"></img></a>
+      </div>
+    </section>
+    <section id="2.2e">
+      <h3>e. Hvað er að kóðanum?</h3>
+      <p>Það þarf að fanga upprunalegu gildi id[p] og id[q] áður en lykkjan byrjar. Þau gildi geta breyst þegar i er jafnt og p eða q og veldur því skekkjum.</p>
+      <p>Annars er lika óþarfa lína: count-- vísar í breytu sem er ekki notuð. </p>
+    </section>
+    <section id="2.2f">
+      <h3>f. víxlun á root(p) og root(q)</h3>
+      <p>Samkvæmt prufugögnunum úr c) - lið og prufugögnunum úr kennsluefninu verða trén eins í laginu þó id[root(p)] og id[root(q)] sé víxlað — en tölurnar fara ekki á sömu staði.</p>
+      <div class="images">
+        <a href="static/weighted_switch.png"><img class="single" src="static/weighted_switch.png"></img></a>
+      </div>
+    </section>
+    <section id="2.2g">
+      <h3>g. samanburður aðferða</h3>
+      <p>todo!</p>
     </section>
     <hr>
     <footer><p>♆</p></footer>
