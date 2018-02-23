@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="verkefni.css">
+  </head>
+  <body>
+    <div class="wrap">
+    <h1>FORR3RR05DU — Verkefni 1</h1>
+    <p>Neptúnus Egilsson<br>
+    Vor 2018</p>
+    <ul>
+      <li ><a href="#2.1">russian vs naive algorithm</a> </li>
+      <li ><a href="#2.2">quickfind</a> </li>
+      <ul style="list-style: lower-roman">
+        <li ><a href="#2.2e">hvað er að kóðanum?</a> </li>
+      </ul>
+    </ul>
+    <hr>
+    <section id="2.1">
+      <h2>2.1 — russian vs naive algorithm</h2>
+      <p>Bæði föllin vinna úr formúlunni foo * bar + baz = niðurstaða, þar sem foo og bar eru færibreyturnar og baz, sem byrjar í 0, er skilað í endann. Bæði föllin standast þessa formúlu eftir hverja einustu lykkju. <br />
+      Naive fallið leggur bar saman við baz foo sinnum, sem þýðir að það vex á línulegan hátt m.v. foo.<br />
+      Russian fallið brýtur verkefnið niður. Við getum teiknað þetta upp einhvernvegin svona:<br />
+      foo * bar = bar + bar + bar + … + bar, foo sinnum. Ef foo er jöfn tala, þá er hægt að líta á vandann þannig: 2 * (bar + bar + … + bar), foo/2 sinnum. <br />
+      Ef að foo er oddatala þurfum við bara að taka einn bar út fyrir jöfnuna og draga einn frá foo.<br />
+      Fjöldi aðgerða sem þarf til að klára keyrslu á því er ⎣log₂foo⎤+1, eða hversu oft má helminga foo (rúnnað niður) þar til að niðurstaðan gefur 0.</p>
+      <p>Þessi vöxtur, linear vs. logarithmic, þýðir að tiltölulega smáar tölur eins og 2²³ margfaldaðar með naive geta tekið um þrjár sekúndur í margföldun, meðan russian fallið fer ekki yfir 2ms í margföldun á tölum eins og 2⁹⁹⁹. Russian fallið er því margfalt hraðara.</p>
+      <p></p>
+    </section>
+    <section id="2.2">
+      <h2>1.2 — shortest path</h2>
+      <p><a href="https://github.com/neptunus/unionfind">Kóði fyrir þetta verkefni</a> var unninn í C#</p>
+    </section>
+    <hr>
+    <footer><p>♆</p></footer>
+  </div>
+  </body>
+</html>

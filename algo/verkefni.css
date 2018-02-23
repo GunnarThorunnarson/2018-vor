@@ -91,3 +91,9 @@ footer p{
 footer p:hover{
   opacity: 1;
 }
+section p {
+  padding: 0 40px;
+}
+section a {
+  font-weight: bold;
+}
