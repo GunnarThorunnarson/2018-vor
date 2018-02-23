@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="wrap">
-    <h1>FORR3RR05DU — Verkefni 1</h1>
+    <h1>FORR3RR05DU — Verkefni 2</h1>
     <p>Neptúnus Egilsson<br>
     Vor 2018</p>
     <ul>
@@ -29,7 +29,7 @@
       foo * bar = bar + bar + bar + … + bar, foo sinnum. Ef foo er jöfn tala, þá er hægt að líta á vandann þannig: 2 * (bar + bar + … + bar), foo/2 sinnum. <br />
       Ef að foo er oddatala þurfum við bara að taka einn bar út fyrir jöfnuna og draga einn frá foo.<br />
       Fjöldi aðgerða sem þarf til að klára keyrslu á því er ⎣log₂foo⎤+1, eða hversu oft má helminga foo (rúnnað niður) þar til að niðurstaðan gefur 0.</p>
-      <p>Þessi vöxtur, linear vs. logarithmic, þýðir að tiltölulega smáar tölur eins og 2²³ margfaldaðar með naive geta tekið um þrjár sekúndur í margföldun, meðan russian fallið fer ekki yfir 2ms í margföldun á tölum eins og 2⁹⁹⁹. Russian fallið er því margfalt hraðara.</p>
+      <p>Þessi vöxtur, linear vs. logarithmic, þýðir að tiltölulega smáar tölur eins og 2²³ margfaldaðar með naive geta tekið um þrjár sekúndur í margföldun, meðan russian fallið fer ekki yfir 2ms í margföldun á tölum eins og 2¹⁰⁰⁰. Russian fallið er því margfalt hraðara.</p>
       <p></p>
     </section>
     <section id="2.2">
@@ -42,6 +42,26 @@
       <div class="images">
         <a href="static/unionfind.png"><img class="single" src="static/unionfind.png"></img></a>
       </div>
+    </section>
+    <section>
+      <h3>d. allt sameinað</h3>
+      <p>Samkvæmt teikningunum í c-lið endaði tinyUF.txt runan á þremur trjám. Ég bætti við eftirfarandi joins: 0 1 ; 5 3 ; 1 7 og þá voru trén eitt. <br />
+      Það er áhugavert að bera saman trén eftir aðferðum:</p>
+      <pre class="code">Quick Find:
+      0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9
+      8 - 8 - 8 - 8 - 8 - 8 - 8 - 8 - 8 - 8</pre>
+      <br>
+      <pre class="code">Quick Union:
+      0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9
+      1 - 8 - 1 - 8 - 3 - 0 - 5 - 1 - 8 - 8</pre>
+      <br>
+      <pre class="code">Weighted Quick Union
+      0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9
+      6 - 2 - 6 - 4 - 6 - 6 - 6 - 2 - 4 - 4</pre>
+      <br>
+      <pre class="code">Weighted Quick Union with Path Compression
+      0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9
+      6 - 6 - 6 - 4 - 6 - 6 - 6 - 6 - 4 - 4</pre>
     </section>
     <section id="2.2e">
       <h3>e. Hvað er að kóðanum?</h3>
@@ -57,7 +77,10 @@
     </section>
     <section id="2.2g">
       <h3>g. samanburður aðferða</h3>
-      <p>todo!</p>
+      <p>Quick Find vex ferningslega (quadratic) eftir fjölda staka og aðgerða. Stærri vandamál eru því ófýsileg með þeirri aðferð. 10x stærri vandi tekur 10x lengri tíma með 10x hraðari tölvu. Ástæðan fyrir þessu er að Quick Find getur þurft að breyta allt að N-1 stökum í einni Union aðgerð. Trén hérna eru í raun mengi, táknuð með id númeri.<br />
+      Quick Union notar aðra hugmynd um tengingar staka. Í upphafi er hvert stak sín eigin rót. Þegar stök eru sameinuð er rót fyrra (vinstri) staksins tengd við rót seinna staksins, og þannig vex tréð. Þetta er strax mikið hraðari lausn, vegna þess að allir nágrannar í trjánum eru hunsaðir, en hún hefur þó sinn galla: Það er enginn samanburður gerður á trjánum, þannig að stærri tré geta alveg eins verið sett undir smærri tré, og þannig vaxið. Í raun gæti tré orðið N hátt ef stökin eru sameinuð í röð, og í þeim tilfellum er lausnin engu hraðari en Quick Find.</p>
+      <p>Betrumbætingar eru sem betur fer mjög einfaldar. Með því að halda utan um stærð trjánna er hægt að passa að smærri tré eru alltaf sett undir stærri tré. Á þennan máta vex aðferðin logralega, eða á sambærilegan máta og russian margföldunaraðferðin. Sameiningar og leitir eru bæði leifturhröð. <br />
+      Síðasta umbótin er sjálf-lagandi lausn, sem bætir aðgerð við aðferðina sem ferðast niður tréð í leit að rótinni. Þá sér sú aðferð um að losa greinar frá trénu og festa þær beint við rótina og tréð verður sífellt flatara.</p>
     </section>
     <hr>
     <footer><p>♆</p></footer>
